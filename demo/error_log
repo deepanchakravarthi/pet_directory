@@ -1,0 +1,2 @@
+[25-Jun-2016 10:40:31 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Redirect' not found in /home/deepan88/public_html/projects/jyjoo/app/Http/Controllers/UserController.php on line 105
+[22-Jul-2016 07:03:15 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Mail' not found in /home/deepan88/public_html/projects/jyjoo/app/Http/Controllers/PostController.php on line 349

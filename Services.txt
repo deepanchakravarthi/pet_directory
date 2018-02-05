@@ -1,0 +1,353 @@
+Search
+
+URL: http://localhost/pet_directory/demo/api/v1/search?locale=en
+
+Method: POST
+
+Parameters:
+
+id	-	pet id, chip id or tattoo id
+id_type(chip_id, pet_id, tattoo_id)
+
+Example
+
+Request:
+http://localhost/pet_directory/demo/api/v1/search?locale=en&locale=fr&id=c123&id_type=chip_id
+
+Response:
+{"code":1,"petData":{"id":1,"chip_id":"C123","tattoo_id":"T123","tattoo_location":"Tloc","name":"Tiger","species":1,"strain":"popoim","gender":1,"geld":1,"date_of_birth":"1998-04-10","country_of_birth":101,"color":"Brown","characteristics":"3 pounds","pass_id":"P123","owner_id":2,"vet_id":4,"pet_id":"P123456","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":1,"permission":0,"created_at":"2018-01-23 16:00:17","updated_at":"2018-02-02 08:00:50","deleted_at":"0000-00-00 00:00:00"},"ownerData":{"id":2,"firstname":"Thiru","lastname":"Murugan","email":"thiru@test.com","phone":"1213131","address":"123 main road","zip":"199227","city":"nashvillei","state":"Arkansa","country":225,"user_type":1,"language":3,"salutation":1,"company":"","register_number":"","authority_name":"","supervisor_name":"","supervisor_email":"","supervisor_phone":"","permission":0,"status":0,"created_at":"2018-01-24 06:23:46","updated_at":"2018-02-02 08:26:31","deleted_at":"0000-00-00 00:00:00"},"petNotes":[]}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Search Contact Response
+
+URL: http://localhost/pet_directory/demo/api/v1/search-result-response?locale=en
+
+Method: POST
+
+Parameters:
+
+pet_id
+your_name
+your_email
+your_phone
+your_message
+location
+
+Example
+
+Request:
+http://localhost/pet_directory/demo/api/v1/search-result-response?locale=en&pet_id=1&your_name=test&your_email=add@add.com&your_message=test&location=test&your_phone=2332532
+
+Response:
+{"code":1}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Owner
+
+Register
+
+URL: http://localhost/pet_directory/demo/api/v1/register-owner?locale=en
+
+Method: POST
+
+Parameters:
+
+user_type (1,2,3,4)
+salutation
+firstname
+lastname
+email
+password
+confirm_password
+phone
+address
+zip
+city
+state
+country
+language
+company - not mandatory
+
+Example
+
+Request:
+http://localhost/pet_directory/demo/api/v1/register-owner?locale=en&user_type=1&salutation=1&firstname=test&lastname=test&email=test@eee.com&phone=2412515&password=testing&confirm_password=testing&address=test&zip=23432&city=tetw&state=alasks&country=2&language=3
+
+Response:
+{"owner":{"user_type":"1","salutation":"1","firstname":"test","lastname":"test","email":"test@eee.com","phone":"2412515","address":"test","zip":"23432","city":"tetw","state":"alasks","country":"2","language":"3","company":"","status":0,"updated_at":"2018-02-04 17:28:19","created_at":"2018-02-04 17:28:19","id":28},"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Vet - Register
+
+Example:
+
+Request: http://localhost/pet_directory/demo/api/v1/register-vet?locale=en&user_type=1&salutation=1&firstname=test&lastname=test&email=ttest@eee.com&phone=2412515&password=testing&confirm_password=testing&address=test&zip=23432&city=tetw&state=alasks&country=2&language=3&company=test&register_number=34333
+
+Response:
+{"vet":{"user_type":"1","salutation":"1","firstname":"test","lastname":"test","email":"ttest@eee.com","phone":"2412515","address":"test","zip":"23432","city":"tetw","state":"alasks","country":"2","language":"3","company":"test","register_number":"34333","status":0,"updated_at":"2018-02-04 17:48:25","created_at":"2018-02-04 17:48:25","id":29},"code":1}
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Authority - Register
+
+Example:
+
+Request:
+http://localhost/pet_directory/demo/api/v1/register-authority?locale=en&user_type=1&salutation=1&firstname=test&lastname=test&email=ddtest@eee.com&phone=2412515&password=testing&confirm_password=testing&address=test&zip=23432&city=tetw&state=alasks&country=2&language=3&authority_name=test&supervisor_name=test&supervisor_phone=3252523626&supervisor_email=test@tst.om
+
+Response:
+
+Same as above
+
+--------------------------------------------------------------------------------------------------------------------
+
+Login
+
+Request: http://localhost/pet_directory/demo/api/v1/login?locale=en&email=vet@test.com&password=testing
+
+Response: {"code":1,"user":{"id":4,"firstname":"Deepu","lastname":"Mani","email":"vet@test.com","phone":"12131141","address":"121212","zip":"312421","city":"puducherry","state":"Puducherry","country":86,"user_type":2,"language":1,"salutation":2,"company":"TEST","register_number":"123456","authority_name":"","supervisor_name":"","supervisor_email":"","supervisor_phone":"","permission":0,"status":0,"created_at":"2018-01-24 18:55:56","updated_at":"2018-02-03 18:04:35","deleted_at":"0000-00-00 00:00:00"}}
+
+--------------------------------------------------------------------------------------------------------------------
+
+My Pets - Owner/Vet/Admin
+
+Request: http://localhost/pet_directory/demo/api/v1/pets?locale=en&id=2
+
+Parameter:
+
+id - user ID
+
+Response:
+{"pets":[{"id":1,"chip_id":"C123","tattoo_id":"T123","tattoo_location":"Tloc","name":"Tiger","species":1,"strain":"popoim","gender":1,"geld":1,"date_of_birth":"1998-04-10","country_of_birth":101,"color":"Brown","characteristics":"3 pounds","pass_id":"P123","owner_id":2,"vet_id":4,"pet_id":"P123456","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":1,"permission":0,"created_at":"2018-01-23 16:00:17","updated_at":"2018-02-02 08:00:50","deleted_at":"0000-00-00 00:00:00"},{"id":2,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Chutti","species":3,"strain":"","gender":2,"geld":4,"date_of_birth":"2000-01-19","country_of_birth":101,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":4,"pet_id":"P456","date_of_death":"0000-00-00","cause_of_death":"sick","lost_location":"PDY","lost_date":"2018-01-17","lost_time":"1:30am","is_pet_id":1,"permission":0,"created_at":"2018-01-23 16:03:08","updated_at":"2018-01-25 09:53:51","deleted_at":"0000-00-00 00:00:00"},{"id":3,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Ronnu","species":2,"strain":"","gender":0,"geld":0,"date_of_birth":"0000-00-00","country_of_birth":0,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":0,"pet_id":"C1222","date_of_death":"0000-00-00","cause_of_death":"sick","lost_location":"re","lost_date":"2018-02-02","lost_time":"1:00am","is_pet_id":0,"permission":0,"created_at":"2018-01-24 06:24:14","updated_at":"2018-02-02 05:13:39","deleted_at":"0000-00-00 00:00:00"},{"id":4,"chip_id":"C1234","tattoo_id":"","tattoo_location":"","name":"VETPET","species":1,"strain":"","gender":0,"geld":0,"date_of_birth":"1970-01-01","country_of_birth":0,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":4,"pet_id":"V123","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":0,"permission":0,"created_at":"2018-01-24 19:12:41","updated_at":"2018-01-25 06:51:13","deleted_at":"0000-00-00 00:00:00"},{"id":7,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Amy","species":6,"strain":"","gender":1,"geld":0,"date_of_birth":"2016-07-18","country_of_birth":13,"color":"Brown","characteristics":"","pass_id":"","owner_id":2,"vet_id":0,"pet_id":"H123","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":0,"permission":0,"created_at":"2018-01-25 09:59:15","updated_at":"2018-01-25 10:01:32","deleted_at":"0000-00-00 00:00:00"},{"id":8,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Jimmy","species":1,"strain":"","gender":0,"geld":0,"date_of_birth":"0000-00-00","country_of_birth":0,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":0,"pet_id":"JIM123","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":0,"permission":0,"created_at":"2018-01-25 13:00:18","updated_at":"2018-01-25 13:11:24","deleted_at":"0000-00-00 00:00:00"},{"id":9,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Babbloo","species":4,"strain":"","gender":0,"geld":0,"date_of_birth":"0000-00-00","country_of_birth":0,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":0,"pet_id":"B12335","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":0,"permission":0,"created_at":"2018-01-25 13:05:01","updated_at":"2018-01-25 13:16:09","deleted_at":"0000-00-00 00:00:00"},{"id":10,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Cuckoo","species":3,"strain":"","gender":1,"geld":1,"date_of_birth":"0000-00-00","country_of_birth":1,"color":"red","characteristics":"","pass_id":"","owner_id":2,"vet_id":4,"pet_id":"C099854934","date_of_death":"0000-00-00","cause_of_death":"","lost_location":"","lost_date":"0000-00-00","lost_time":"","is_pet_id":1,"permission":0,"created_at":"2018-01-25 13:16:45","updated_at":"2018-02-02 05:36:33","deleted_at":"0000-00-00 00:00:00"}],"offers":[],"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Create Pet - Owner/Vet/Admin
+
+Request: http://localhost/pet_directory/demo/api/v1/create-pet?locale=en&name=jimmy&species=2&chip_id=222&color=black&id=2
+
+Response: {"pet":{"name":"jimmy","species":"2","color":"black","chip_id":"222","owner_id":2,"updated_at":"2018-02-04 18:51:21","created_at":"2018-02-04 18:51:21","id":12},"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+View Pet
+
+Method: GET
+
+Parameters: id - pet ID and user_id - owner/vet/admin
+
+Request: http://localhost/pet_directory/demo/api/v1/view-pet/2/user/2?locale=en
+
+Response: {"pet":{"id":2,"chip_id":"","tattoo_id":"","tattoo_location":"","name":"Chutti","species":3,"strain":"","gender":2,"geld":4,"date_of_birth":"2000-01-19","country_of_birth":101,"color":"","characteristics":"","pass_id":"","owner_id":2,"vet_id":4,"pet_id":"P456","date_of_death":"0000-00-00","cause_of_death":"sick","lost_location":"PDY","lost_date":"2018-01-17","lost_time":"1:30am","is_pet_id":1,"permission":0,"created_at":"2018-01-23 16:03:08","updated_at":"2018-01-25 09:53:51","deleted_at":"0000-00-00 00:00:00"},"notes":[],"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Edit Pet
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/edit-pet?locale=en&user_id=2&id=2&species=2&color=black&chip_id=222&name=cyusln
+
+Response: {"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Confirm Pet Found
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/confirm-found?locale=en&user_id=2&id=12
+
+Response: {"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Confirm Pet Lost
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/confirm-lost?locale=en&user_id=2&id=12&lost_location=beach&lost_date=2018/02/02&lost_time=02:00pm
+
+Response: {"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Confirm Pet Death
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/confirm-death?locale=en&user_id=2&id=12&date_of_death=2018/02/02&cause_of_death=sick
+
+Response: {"code":1}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Confirm Offer
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/confirm-offer?locale=en&user_id=2&id=12&new_owner_email=test@test.com
+
+--------------------------------------------------------------------------------------------------------------------
+
+Accept Pet Offer
+
+Method: GET
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/accept-offer/2/user/2?locale=en&user_id=2&id=12
+
+Parameter: id - offer request ID
+--------------------------------------------------------------------------------------------------------------------
+
+Add Notes
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/pet/confirm-addnote?locale=en&user_id=4&id=2&notes=testt
+
+--------------------------------------------------------------------------------------------------------------------
+
+Owner Profile Update
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/edit-profile?locale=en&id=2&email=thiru@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2
+
+--------------------------------------------------------------------------------------------------------------------
+
+Vet Profile Update
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/edit-profile-vet?locale=en&id=4&email=vet@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2&register_number=325435&company=test123
+
+--------------------------------------------------------------------------------------------------------------------
+
+Authority Profile Update
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/edit-profile-authority?locale=en&id=5&email=david@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2&authority_name=test&supervisor_name=test&supervisor_email=sub@test.com&supervisor_phone=32432532
+
+--------------------------------------------------------------------------------------------------------------------
+
+List Users
+
+Method: GET
+
+Request: http://localhost/pet_directory/demo/api/v1/users/4?locale=en
+
+Parameter: user_id
+
+--------------------------------------------------------------------------------------------------------------------
+
+View User
+
+Method: GET
+
+Request: http://localhost/pet_directory/demo/api/v1/view-user/4?locale=en
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Create Authority
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/create-authority?locale=en&email=auth33@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2&authority_name=test&supervisor_name=test&supervisor_email=sub@test.com&supervisor_phone=32432532&firstname=auth111&lastname=test&status=0&salutation=2&password=testing&confirm_password=testing&user_type=3
+
+--------------------------------------------------------------------------------------------------------------------
+
+Create Vet
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/create-vet?locale=en&email=vet33@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2&firstname=vet111&lastname=test&status=0&salutation=2&password=testing&confirm_password=testing&user_type=2&company=test&register_number=234324
+--------------------------------------------------------------------------------------------------------------------
+
+Create Owner
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/create-user?locale=en&email=owner33@test.com&phone=3454363463&address=3535534&zip=545344&city=test&state=test&country=123&language=2&firstname=vet111&lastname=test&status=0&salutation=2&password=testing&confirm_password=testing&user_type=2&company=test
+
+--------------------------------------------------------------------------------------------------------------------
+
+List Subscriptions
+
+Method: GET
+
+Request: http://localhost/pet_directory/demo/api/v1/subscription/4?locale=en
+
+Parameter: user_id
+
+--------------------------------------------------------------------------------------------------------------------
+
+Subscribe - IBAN
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/subscription-charge-iban
+
+Parameters:
+
+id- Vet ID
+iban- IBAN
+name - Vet name
+--------------------------------------------------------------------------------------------------------------------
+
+Subscribe - Card
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/subscription-charge
+Parameters:
+
+id- Vet ID
+stripeToken - Token
+
+--------------------------------------------------------------------------------------------------------------------
+
+Change Payment Details - Card
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/change-payment-details
+Parameters:
+
+id- Vet ID
+stripeToken - Token
+
+--------------------------------------------------------------------------------------------------------------------
+
+Change Payment Details - IBAN
+
+Method: POST
+
+Request: http://localhost/pet_directory/demo/api/v1/change-payment-details-iban
+
+Parameters:
+
+id- Vet ID
+iban- IBAN
+name - Vet name
+
+--------------------------------------------------------------------------------------------------------------------
+
+Cancel Subscription
+
+Method: GET
+
+Request: http://localhost/pet_directory/demo/api/v1/cancel-subscription/{id}/user_id/{user_id}
+
+Parameters:
+
+id - Subscription ID
+
+user_id - Vet ID / Admin ID
+
+--------------------------------------------------------------------------------------------------------------------
